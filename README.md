@@ -1,6 +1,6 @@
 # Project Dokimos
 
-One Paragraph of project description goes here
+Dokimos is the custom policy engine for the stateless workloads..
 
 ## Getting Started
 
