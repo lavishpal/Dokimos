@@ -1,0 +1,26 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: "pod-policy.example.com"
+webhooks:
+- name: "pod-policy.example.com"
+  rules:
+  - apiGroups:
+      - ""  # core API group]
+    apiVersions: 
+      - "v1"
+    operations: 
+      - "CREATE"
+    resources: 
+      - "pods"
+    scope: "Namespaced"
+  clientConfig:
+    url: "https://ccca-194-153-186-2.ngrok-free.app/validate"  # Replace with your webhook URL
+    # service:
+    #   namespace: "example-namespace"
+    #   name: "example-service"
+    # caBundle: <CA_BUNDLE>
+  admissionReviewVersions: 
+    - v1
+  sideEffects: None
+  timeoutSeconds: 5
